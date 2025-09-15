@@ -1,6 +1,6 @@
-import {projects} from "../projects"
-import ProjectCard from "./ProjectCard";
-import { fadeDownChildVariants } from "../fadeDown";
+import {projects} from "../projects.js"
+import ProjectCard from "./ProjectCard.js";
+import { fadeDownChildVariants } from "../fadeDown.js";
 import { motion } from "motion/react";
 
 export default function Projects(){

@@ -14,10 +14,25 @@ import {
   SiReactrouter,
   SiClerk,
 } from "react-icons/si";
-import { ChefHat, LayoutDashboard } from "lucide-react";
+import { ChefHat, LayoutDashboard,Icon as LucideIcon } from "lucide-react";
+import type { IconType } from "react-icons";
   
+type tags={
+  title:string,
+  icon:IconType | typeof LucideIcon,
+  color?:string
+}
+export type project={
+  id:number,
+  image:string,
+  title:string,
+  description:string,
+  githubLink:string,
+  liveDemoLink?:string
+  tags:tags[]
+}
 
-export const projects = [
+export const projects:project[] = [
   {
     id: 1,
     image: blogAppImage,
@@ -80,7 +95,6 @@ export const projects = [
     ],
     githubLink:
       "https://github.com/sujan17148/web-practice-projects/tree/main/anime-site",
-    liveDemoLink: null,
   },
 
   {

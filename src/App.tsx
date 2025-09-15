@@ -1,10 +1,10 @@
-import Navbar from "./Components/Navbar";
-import Home from "./Components/Home";
-import Projects from "./Components/Projects";
-import About from "./Components/About";
-import Footer from "./Components/Footer";
+import Navbar from "./Components/Navbar.js";
+import Home from "./Components/Home.js";
+import Projects from "./Components/Projects.js";
+import About from "./Components/About.js";
+import Footer from "./Components/Footer.js";
 import { motion } from "motion/react";
-import{fadeDownContainerVariants} from "./fadeDown"
+import{fadeDownContainerVariants} from "./fadeDown.js"
 export default function App() {
   return (
       <motion.div variants={fadeDownContainerVariants} whileInView="animate" initial="initial" viewport={{once:true}} className="max-w-5xl w-full relative bg-dark-primary dark:bg-neutral-900 text-primary dark:text-dark-primary min-h-[100dvh] mx-auto px-5 md:px-10">

@@ -5,10 +5,12 @@ import {
   useTransform,
 } from "motion/react";
 import { FiGithub } from "react-icons/fi";
-import { CiGlobe } from "react-icons/ci";
 import { SlGlobe } from "react-icons/sl";
 import { useState, useRef } from "react";
-import { fadeDownChildVariants } from "../fadeDown";
+import { fadeDownChildVariants } from "../fadeDown.js";
+import { type project} from "../projects.js"
+import type { IconType } from "react-icons";
+
 
 export default function ProjectCard({
   image,
@@ -17,8 +19,8 @@ export default function ProjectCard({
   tags,
   liveDemoLink,
   githubLink,
-}) {
-  const [tagHovered, setTagHovered] = useState(null);
+}:project) {
+  const [tagHovered, setTagHovered] = useState<number | null>(null);
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -88,7 +90,7 @@ export default function ProjectCard({
           className="tags text-secondary dark:text-dark-secondary flex items-center mt-4"
         >
           {tags.map((tag, index) => {
-            const IconComponent = tag.icon;
+            const IconComponent = tag.icon as IconType;
 
             return (
               <motion.div

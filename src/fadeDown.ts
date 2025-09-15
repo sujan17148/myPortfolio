@@ -1,4 +1,6 @@
-const fadeDownContainerVariants = {
+import type { Variants } from "motion";
+
+const fadeDownContainerVariants:Variants = {
     initial: {},
     animate: {
       transition: {
@@ -7,7 +9,7 @@ const fadeDownContainerVariants = {
     },
   };
 
-  const fadeDownChildVariants = {
+  const fadeDownChildVariants:Variants= {
     initial: { y: -20, opacity: 0,filter:"blur(5px)" },
     animate: {
       y: 0,

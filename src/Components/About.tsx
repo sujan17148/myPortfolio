@@ -1,6 +1,6 @@
-import Skills from "./Skills";
+import Skills from "./Skills.js";
 import { motion } from "motion/react";
-import {fadeDownChildVariants} from "../fadeDown"
+import {fadeDownChildVariants} from "../fadeDown.js"
 export default function About(){
     return <motion.div variants={fadeDownChildVariants} viewport={{once:true}} id="about-section" className="scroll-mt-20">
           <p className="font-semibold text-2xl md:text-3xl">

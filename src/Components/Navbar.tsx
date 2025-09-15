@@ -3,20 +3,31 @@ import {
   motion,
   useMotionValueEvent,
   useScroll,
+  type Variants,
 } from "motion/react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
-import ThemeButton from "./ThemeButton"
+import ThemeButton from "./ThemeButton.js"
+
+type navItemsProps={
+  title:string,
+  href:string,
+}
+type MobileNavbarProps={
+  isMenuVisible:boolean,
+  setIsMenuVisible:React.Dispatch<React.SetStateAction<boolean>>
+}
+
 
 export default function Navbar() {
   const[isMenuVisible,setIsMenuVisible]=useState(false)
-  const navItems = [
+  const navItems:navItemsProps[] = [
     { title: "Home", href: "#home-section" },
     { title: "About", href: "#about-section" },
     { title: "Projects", href: "#projects-section"},
   ];
-  const [hovered, setHovered] = useState(null);
-  const [scrolled, setScrolled] = useState(false);
+  const [hovered, setHovered] = useState<number | null>(null);
+  const [scrolled, setScrolled] = useState<boolean>(false);
   const { scrollY } = useScroll();
   useMotionValueEvent(scrollY, "change", (latest) => {
     if (latest > 30) {
@@ -30,7 +41,7 @@ export default function Navbar() {
       animate={{
         width: scrolled ? "90%" : "100%",
         boxShadow: scrolled ? "var(--shadow-lg)" : "none",
-        y: scrolled && 10,
+        y: scrolled ? 10:0,
         padding:scrolled? "0 10px": "0"
       }}
       transition={{ duration: 0.3 }}
@@ -67,14 +78,14 @@ export default function Navbar() {
 }
 
 
-function MobileNavbar({isMenuVisible,setIsMenuVisible}){
-  const containerVariants={
+function MobileNavbar({isMenuVisible,setIsMenuVisible}:MobileNavbarProps){
+  const containerVariants:Variants={
     initial:{},
     animate:{
       transition:{staggerChildren:0.2}
     }
   }
-  const childVariants={
+  const childVariants:Variants={
     initial:{x:40,opacity:0},
     animate:{
       x:0,opacity:1,

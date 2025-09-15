@@ -1,5 +1,17 @@
-import { forwardRef, useMemo, useRef, useEffect } from 'react';
+import { forwardRef, useMemo, type Ref, useRef, useEffect } from 'react';
 import { motion } from 'motion/react';
+interface VariableProximityProps {
+  label: string;
+  fromFontVariationSettings: string;
+  toFontVariationSettings: string;
+  containerRef?: React.RefObject<HTMLElement>;
+  radius?: number;
+  falloff?: string;
+  className?: string;
+  onClick?: () => void;
+  style?: React.CSSProperties;
+  [key: string]: any; // allow extra props just in case
+}
 
 function useAnimationFrame(callback) {
   useEffect(() => {
@@ -43,7 +55,7 @@ function useMousePositionRef(containerRef) {
   return positionRef;
 }
 
-const VariableProximity = forwardRef((props, ref) => {
+const VariableProximity = forwardRef<HTMLDivElement,VariableProximityProps>((props, ref) => {
   const {
     label,
     fromFontVariationSettings,

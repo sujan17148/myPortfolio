@@ -2,8 +2,8 @@ import { LuGithub,LuLinkedin,LuMail,LuTwitter } from "react-icons/lu";
 import { FaFilePdf } from "react-icons/fa";
 import { motion } from "motion/react";
 import { useRef } from 'react';
-import VariableProximity from './VariableProximity';
-import {fadeDownChildVariants} from "../fadeDown"
+import VariableProximity from './VariableProximity.js';
+import {fadeDownChildVariants} from "../fadeDown.js"
 export default function Home(){
   const containerRef = useRef(null);
     return  <motion.div variants={fadeDownChildVariants}  id="home-section" className="links-section  scroll-mt-20 pt-3 pb-5">

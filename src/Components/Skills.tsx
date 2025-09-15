@@ -4,7 +4,7 @@ import { RiTailwindCssFill } from "react-icons/ri";
 import { DiJavascript1 } from "react-icons/di";
 import { SiAppwrite, SiFramer,SiTypescript } from "react-icons/si";
 import { motion } from "motion/react";
-import {fadeDownChildVariants} from "../fadeDown"
+import {fadeDownChildVariants} from "../fadeDown.js"
 export default function Skills() {
   const skills = [
     {
