@@ -64,7 +64,7 @@ export default function Skills() {
   ];
   return (
     <div className="my-5">
-      <p className="my-2 font-semibold text-2xl md:text-3xl">
+      <p className="my-2 font-semibold text-xl md:text-2xl">
         Tech Stack
       </p>
       <motion.div variants={fadeDownChildVariants} className="grid grid-cols-2 md:grid-cols-4  gap-2"
@@ -74,7 +74,7 @@ export default function Skills() {
           return (
             <motion.div variants={fadeDownChildVariants}
               key={index}
-              className="flex items-center px-2 h-16 bg-white dark:bg-primary  rounded  gap-2"
+              className="flex items-center px-2 h-16 bg-white dark:bg-primary  rounded  gap-2 hover:scale-102 transition duration-300"
             >
               <IconComponent
                 style={{ color: `${skill.color}` }}

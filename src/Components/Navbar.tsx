@@ -8,6 +8,7 @@ import {
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
 import ThemeButton from "./ThemeButton.js"
+import { fadeDownChildVariants } from "../fadeDown.js";
 
 type navItemsProps={
   title:string,
@@ -45,6 +46,7 @@ export default function Navbar() {
         padding:scrolled? "0 10px": "0"
       }}
       transition={{ duration: 0.3 }}
+     variants={fadeDownChildVariants}
       className="h-16 flex items-center justify-between  backdrop-blur-2xl  sticky top-0 mx-auto rounded-full z-20"
     >
       <img src="/profile.webp" alt="profile" className="h-14 border-3 border-white aspect-square rounded-full object-cover" />

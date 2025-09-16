@@ -42,14 +42,14 @@ export default function ProjectCard({
       style={{ opacity, filter: useMotionTemplate`blur(${blur}px)`, scale }}
       variants={fadeDownChildVariants}
       ref={containerRef}
-      className="w-full group relative sm:w-[calc(50%-10px)] md:w-[calc(33%-13.33px)] flex flex-col overflow-hidden rounded h-fit max-h[400px]"
+      className="w-full group relative sm:w-[calc(50%-10px)] md:w-[calc(33%-13.33px)] flex flex-col overflow-hidden rounded h-fit max-h-[400px]"
     >
-      <a href={liveDemoLink} target="_blank">
+      <a href={liveDemoLink} >
         <motion.img
           variants={fadeDownChildVariants}
           src={image}
           alt="projectImage"
-          className="rounded grow group-hover:scale-110 transition duration-300 ease-linear"
+          className="rounded grow max-h-[250px] w-full group-hover:scale-110 transition duration-300 ease-linear"
         />
       </a>
       <div className="details space-y-1 p-2 ">
@@ -65,7 +65,6 @@ export default function ProjectCard({
               <a
                 className="hover:text-accent text-xl"
                 href={liveDemoLink}
-                target="_blank"
               >
                 <SlGlobe />
               </a>

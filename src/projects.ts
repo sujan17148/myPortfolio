@@ -3,6 +3,7 @@ import blogAppImage from "./assets/blog-app.png";
 import ecommerceAppImage from "./assets/ecommece.png";
 import animeAppImage from "./assets/anime-site.jpg";
 import recipeAppImage from "./assets/recipe-app.jpg";
+import portfolioImage from "./assets/portfolio.png"
 
 import {
   SiReact,
@@ -13,6 +14,8 @@ import {
   SiJavascript,
   SiReactrouter,
   SiClerk,
+  SiTypescript,
+  SiFramer,
 } from "react-icons/si";
 import { ChefHat, LayoutDashboard,Icon as LucideIcon } from "lucide-react";
 import type { IconType } from "react-icons";
@@ -74,6 +77,7 @@ export const projects:project[] = [
       "A modern, fully responsive e-commerce web application built using React, Clerk for authentication, Fakestore API for product data, and styled with Tailwind CSS.",
     tags: [
       { title: "React", icon: SiReact, color: "#61DAFB" },
+      {title:"TypeScript",icon:SiTypescript,color:"#3178c6"},
       { title: "Tailwind CSS", icon: SiTailwindcss, color: "#38BDF8" },
       { title: "Clerk Auth", icon: SiClerk, color: "#111827" },
       { title: "Redux Toolkit", icon: SiRedux, color: "#764ABC" },
@@ -81,9 +85,23 @@ export const projects:project[] = [
     githubLink: "https://github.com/sujan17148/e-commerce-app",
     liveDemoLink: "https://shopcraft-store.netlify.app/",
   },
-
   {
     id: 4,
+    image: portfolioImage,
+    title: "Portfolio",
+    description:
+      "A personal portfolio website built to showcase my work, skills, and projects. This site is designed to be minimal, fast, and visually engaging — with smooth animations and a responsive layout.",
+    tags: [
+      { title: "React", icon: SiReact, color: "#61DAFB" },
+      {title:"TypeScript",icon:SiTypescript,color:"#3178c6"},
+      { title: "Tailwind CSS", icon: SiTailwindcss, color: "#38BDF8" },
+      {title:"Framer Motion",icon:SiFramer,color:"#F05032"} 
+    ],
+    githubLink: "https://github.com/sujan17148/myPortfolio",
+    liveDemoLink:"https://my-portfolio-sujan.vercel.app/"
+  },
+  {
+    id: 5,
     image: animeAppImage,
     title: "Anime App",
     description:
@@ -98,7 +116,7 @@ export const projects:project[] = [
   },
 
   {
-    id: 5,
+    id: 6,
     image: recipeAppImage,
     title: "Recipe App",
     description:
