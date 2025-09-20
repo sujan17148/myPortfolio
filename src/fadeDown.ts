@@ -4,13 +4,13 @@ const fadeDownContainerVariants:Variants = {
     initial: {},
     animate: {
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.2,
       },
     },
   };
 
   const fadeDownChildVariants:Variants= {
-    initial: { y: -20, opacity: 0,filter:"blur(5px)" },
+    initial: { y: -40, opacity: 0,filter:"blur(10px)"},
     animate: {
       y: 0,
       opacity: 1,

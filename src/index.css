@@ -19,7 +19,8 @@ html,body{
 /* for variable proximity  */
 .variable-proximity {
   font-family: 'Roboto Flex', sans-serif;
-  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-size: clamp(2rem, 5vw, 4rem);
+  white-space: nowrap;
   line-height: 1;
   color:var(--color-accent)
 }

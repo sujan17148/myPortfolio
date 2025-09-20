@@ -8,7 +8,7 @@ import {
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
 import ThemeButton from "./ThemeButton.js"
-import { fadeDownChildVariants } from "../fadeDown.js";
+import { fadeDownChildVariants, fadeDownContainerVariants } from "../fadeDown.js";
 
 type navItemsProps={
   title:string,
@@ -46,13 +46,16 @@ export default function Navbar() {
         padding:scrolled? "0 10px": "0"
       }}
       transition={{ duration: 0.3 }}
-     variants={fadeDownChildVariants}
+      initial="initial"
+      whileInView="animate"
+      viewport={{ once: true }}
+     variants={fadeDownContainerVariants}
       className="h-16 flex items-center justify-between  backdrop-blur-2xl  sticky top-0 mx-auto rounded-full z-20"
     >
-      <img src="/profile.webp" alt="profile" className="h-14 border-3 border-white aspect-square rounded-full object-cover" />
+      <motion.img variants={fadeDownChildVariants} src="/profile.webp" alt="profile" className="h-14 border-3 border-white aspect-square rounded-full object-cover" />
       <ul className="links hidden md:flex items-center  text-base md:text-lg ">
         {navItems.map((item, index) => (
-          <li
+          <motion.li variants={fadeDownChildVariants}
             key={index}
             className="relative p-2"
             onMouseEnter={() => setHovered(index)}
@@ -66,14 +69,16 @@ export default function Navbar() {
                 className="absolute left-2 bottom-2 bg-primary dark:bg-dark-primary w-[calc(100%-16px)] h-0.5"
               ></motion.span>
             )}
-          </li>
+          </motion.li>
         ))}
-        <ThemeButton/>
+       <motion.span variants={fadeDownChildVariants}>
+       <ThemeButton/>
+       </motion.span>
       </ul>
-     <div className="md:hidden flex items-center gap-2">
+     <motion.div variants={fadeDownChildVariants} className="md:hidden flex items-center gap-2">
      <ThemeButton/>
      <GiHamburgerMenu className="text-2xl" onClick={()=>setIsMenuVisible(true)} />
-     </div>
+     </motion.div>
     </motion.div>
       <MobileNavbar isMenuVisible={isMenuVisible} setIsMenuVisible={setIsMenuVisible}/>
   </>

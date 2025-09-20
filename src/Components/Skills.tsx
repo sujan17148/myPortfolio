@@ -4,9 +4,16 @@ import { RiTailwindCssFill } from "react-icons/ri";
 import { DiJavascript1 } from "react-icons/di";
 import { SiAppwrite, SiFramer,SiTypescript } from "react-icons/si";
 import { motion } from "motion/react";
-import {fadeDownChildVariants} from "../fadeDown.js"
+import {fadeDownChildVariants, fadeDownContainerVariants} from "../fadeDown.js"
+import type { IconType } from "react-icons";
+type skillProps={
+  name:string,
+  icon:IconType,
+  color:string,
+  description:string
+}
 export default function Skills() {
-  const skills = [
+  const skills:skillProps[] = [
     {
       name: "React",
       icon: FaReact,
@@ -63,35 +70,36 @@ export default function Skills() {
     },
   ];
   return (
-    <div className="my-5">
-      <p className="my-2 font-semibold text-xl md:text-2xl">
+    <motion.div variants={fadeDownContainerVariants} whileInView="animate" initial="initial" viewport={{once:true}} className="my-5">
+      <motion.p variants={fadeDownChildVariants} className="my-2 font-semibold text-xl md:text-2xl">
         Tech Stack
-      </p>
-      <motion.div variants={fadeDownChildVariants} className="grid grid-cols-2 md:grid-cols-4  gap-2"
-      >
-        {skills.slice(0,8).map((skill, index) => {
-          const IconComponent = skill.icon;
-          return (
-            <motion.div variants={fadeDownChildVariants}
-              key={index}
-              className="flex items-center px-2 h-16 bg-white dark:bg-primary  rounded  gap-2 hover:scale-102 transition duration-300"
-            >
-              <IconComponent
-                style={{ color: `${skill.color}` }}
-                className="h-13 w-13 p-2 bg-neutral-300/30 dark:bg-secondary/30 rounded "
-              />
-              <div className="flex flex-col">
-                <span className="title text-sm text-primary dark:text-dark-primary">
-                  {skill.name}
-                </span>
-                <span className="description text-sm line-clamp-1 text-secondary">
-                  {skill.description}
-                </span>
-              </div>
-            </motion.div>
-          );
-        })}
-      </motion.div>
-    </div>
+      </motion.p>
+      <div className="grid grid-cols-2 md:grid-cols-4  gap-2"
+      > 
+        {skills.slice(0,8).map((skill, index) =><SkillsCard key={index} {...skill}/>)}
+      </div>
+    </motion.div>
+  );
+}
+
+function SkillsCard({ name, icon, color, description }:skillProps) {
+  const IconComponent = icon;
+  return (
+    <motion.div variants={fadeDownChildVariants} whileHover={{scale:1.05}}
+      className="flex items-center px-2 h-16 bg-white dark:bg-primary rounded  gap-2 "
+    >
+      <IconComponent
+        style={{ color: `${color}` }}
+        className="h-13 w-13 p-2 bg-neutral-300/30 dark:bg-secondary/30 rounded "
+      />
+      <div className="flex flex-col">
+        <span className="title text-sm text-primary dark:text-dark-primary">
+          {name}
+        </span>
+        <span className="description text-sm line-clamp-1 text-secondary">
+          {description}
+        </span>
+      </div>
+    </motion.div>
   );
 }
