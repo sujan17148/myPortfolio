@@ -1,26 +1,409 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
+
+/* =========================================================
+   PORTFOLIO DESIGN SYSTEM
+   Warm editorial / handwritten portfolio
+   ========================================================= */
 
 @theme inline {
+  /* -------------------------------------------------------
+     Typography
+     ------------------------------------------------------- */
+
+  --font-sans: var(--font-patrick-hand), cursive;
+  --font-base: var(--font-patrick-hand), cursive;
+  --font-hand: var(--font-kalam), cursive;
+  --font-script: var(--font-cedarville-cursive), cursive;
+
+  /* -------------------------------------------------------
+     Shadcn mappings
+     ------------------------------------------------------- */
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* -------------------------------------------------------
+     Portfolio colors
+     ------------------------------------------------------- */
+
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-pencil: var(--pencil);
+  --color-highlight: var(--highlight);
+
+  --color-warm-green: var(--warm-green);
+  --color-warm-red: var(--warm-red);
+  --color-warm-blue: var(--warm-blue);
+  --color-warm-yellow: var(--warm-yellow);
+
+  --color-cream: var(--cream);
+  --color-cream-dark: var(--cream-dark);
+
+  /* -------------------------------------------------------
+     Radius
+     ------------------------------------------------------- */
+
+  --radius-sm: 0.15rem;
+  --radius-md: 0.2rem;
+  --radius-lg: 0.3rem;
+  --radius-xl: 0.4rem;
+  --radius-2xl: 0.5rem;
+
+  /* -------------------------------------------------------
+     Sidebar / charts — retained for shadcn compatibility
+     ------------------------------------------------------- */
+
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* =========================================================
+   COLORS
+   ========================================================= */
+
+:root {
+  /* Main paper */
+  --background: #f8f4ea;
+  --cream: #f8f4ea;
+  --cream-dark: #eee9dc;
+
+  /* Ink */
+  --foreground: #25231f;
+  --ink: #25231f;
+  --ink-soft: #5f5a50;
+
+  /* Pencil / secondary text / rules */
+  --pencil: #8b8477;
+
+  /* Cards */
+  --card: #fbf8f0;
+  --card-foreground: #25231f;
+
+  --popover: #fbf8f0;
+  --popover-foreground: #25231f;
+
+  /* Main accent */
+  --primary: #25231f;
+  --primary-foreground: #f8f4ea;
+
+  /* Subtle surfaces */
+  --secondary: #eee9dc;
+  --secondary-foreground: #25231f;
+
+  --muted: #eee9dc;
+  --muted-foreground: #777064;
+
+  --accent: #eee9dc;
+  --accent-foreground: #25231f;
+
+  /* Highlight */
+  --highlight: #eee36b;
+
+  /* Status accents */
+  --warm-green: #66866a;
+  --warm-red: #c85a43;
+  --warm-blue: #537b88;
+  --warm-yellow: #c5a83e;
+
+  /* Borders */
+  --border: #9d9587;
+  --input: #9d9587;
+  --ring: #6d675d;
+
+  --destructive: #c85a43;
+  --destructive-foreground: #fffaf0;
+
+  --radius: 0.2rem;
+
+  /* Charts */
+  --chart-1: #66866a;
+  --chart-2: #537b88;
+  --chart-3: #c85a43;
+  --chart-4: #c5a83e;
+  --chart-5: #8b8477;
+
+  /* Sidebar */
+  --sidebar: #f8f4ea;
+  --sidebar-foreground: #25231f;
+  --sidebar-primary: #25231f;
+  --sidebar-primary-foreground: #f8f4ea;
+  --sidebar-accent: #eee9dc;
+  --sidebar-accent-foreground: #25231f;
+  --sidebar-border: #c9c1b2;
+  --sidebar-ring: #777064;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    color: var(--color-ink);
+    font-family: var(--font-base);
+    font-size: 1.02rem;
+    background-color: var(--color-background);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-hand);
+    font-weight: 700;
+    letter-spacing: 0.01em;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* hand-drawn box — a wobbly ink stroke (SVG filter) with a faint offset
+   second trace, like the shape was drawn twice with an unsteady pen */
+@utility sketch-box {
+  background: color-mix(in oklab, var(--card) 80%, transparent);
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    transform: translate(2px, 2.5px);
+    border: 1.1px solid color-mix(in oklab, var(--color-pencil) 38%, transparent);
+    border-radius: 6px 8px 5px 7px / 7px 5px 8px 6px;
+    filter: url(#sketch-line);
+    pointer-events: none;
+  }
+}
+
+@utility sketch-box-2 {
+  background: color-mix(in oklab, var(--card) 75%, transparent);
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1.4px solid var(--color-ink);
+    border-radius: 6px 8px 5px 7px / 7px 5px 8px 6px;
+    filter: url(#sketch-line);
+    pointer-events: none;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    transform: translate(-2px, 2.5px);
+    border: 1.1px solid color-mix(in oklab, var(--color-pencil) 38%, transparent);
+    border-radius: 8px 5px 7px 6px / 5px 7px 6px 8px;
+    filter: url(#sketch-line);
+    pointer-events: none;
+  }
+}
+
+@utility sketch-underline {
+  background-image: linear-gradient(
+    to right,
+    transparent 2%,
+    var(--color-ink) 8%,
+    var(--color-ink) 92%,
+    transparent 98%
+  );
+  background-repeat: no-repeat;
+  background-size: 100% 2px;
+  background-position: 0 100%;
+  padding-bottom: 3px;
+}
+
+@utility sketch-border {
+  border-radius: 18px 12px 20px 10px / 12px 18px 10px 20px;
+}
+@utility sketch-border-sm {
+  border-radius: 8px 5px 9px 4px / 5px 8px 4px 9px;
+}
+
+/* a line drawn freehand — wobbles along its length */
+@utility sketch-rule {
+  height: 6px;
+  border: 0;
+  background: none;
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 2px;
+    height: 1.6px;
+    background: var(--color-pencil);
+    border-radius: 60% 40% 55% 45% / 100%;
+    filter: url(#sketch-line);
+  }
+}
+
+/* freehand vertical line (timeline spine) */
+@utility sketch-timeline {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    bottom: 6px;
+    left: 0;
+    width: 1.6px;
+    background: var(--color-pencil);
+    border-radius: 100% / 55% 45% 60% 40%;
+    filter: url(#sketch-line);
+  }
+}
+
+@utility tape {
+  &::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    width: 84px;
+    height: 22px;
+    transform: translateX(-50%) rotate(-2.5deg);
+    background: color-mix(in oklab, var(--highlight) 55%, transparent);
+    border: 1px dashed color-mix(in oklab, var(--ink) 25%, transparent);
+  }
+}
+
+/* tag outline drawn as an irregular closed stroke — clip-path frame so the
+   line width varies naturally, like a pen circled the word */
+@utility chip {
+  display: inline-block;
+  position: relative;
+  padding: 0.1rem 0.65rem 0.15rem;
+  font-size: 0.85rem;
+  color: var(--color-ink-soft);
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    background: color-mix(in oklab, var(--color-pencil) 85%, transparent);
+    clip-path: polygon(
+      evenodd,
+      2% 18%,
+      18% 4%,
+      45% 8%,
+      72% 2%,
+      94% 6%,
+      99% 30%,
+      97% 62%,
+      100% 86%,
+      80% 98%,
+      52% 94%,
+      24% 100%,
+      4% 92%,
+      0% 64%,
+      1% 38%,
+      3.5% 20%,
+      19% 8%,
+      45% 11.5%,
+      71% 6%,
+      91.5% 9.5%,
+      96% 30%,
+      94% 61%,
+      96.5% 83%,
+      79% 93.5%,
+      52% 89.5%,
+      25% 95.5%,
+      6.5% 88%,
+      3% 63%,
+      4% 39%
+    );
+    pointer-events: none;
+  }
+}
+
+/* chip with a darker ink outline (e.g. the "Get in touch" button) */
+@utility chip-ink {
+  &::before {
+    background: var(--color-ink);
+    clip-path: polygon(
+      evenodd,
+      1% 22%,
+      20% 2%,
+      50% 7%,
+      82% 1%,
+      98% 10%,
+      100% 45%,
+      96% 78%,
+      99% 95%,
+      74% 100%,
+      42% 95%,
+      14% 99%,
+      2% 84%,
+      0% 52%,
+      4% 24%,
+      21% 7%,
+      50% 11.5%,
+      80% 6%,
+      94% 13%,
+      96% 44%,
+      92.5% 75%,
+      95% 90%,
+      73% 95%,
+      43% 90.5%,
+      16% 94%,
+      5% 81%,
+      3.5% 52%
+    );
+  }
+  color: var(--color-ink);
+}
+
+/* freehand row separator (skills list) */
+@utility sketch-row {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 1.3px;
+    background: color-mix(in oklab, var(--color-pencil) 80%, transparent);
+    border-radius: 55% 45% 50% 50% / 100%;
+    filter: url(#sketch-line);
+  }
 }

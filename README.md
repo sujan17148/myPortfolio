@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio (Next.js)
 
-## Getting Started
+Personal portfolio built with Next.js (App Router). This repo contains the source for a small portfolio site with reusable components, project data in JSON, and a simple layout.
 
-First, run the development server:
+## Features
+
+- Lightweight portfolio layout and components in `src/components`
+- Project pages generated from JSON data in `src/data/project-details` and `src/data/projects.json`
+- App Router structure under the `app/` directory
+
+## Tech Stack
+
+- Next.js (App Router)
+- TypeScript
+- PostCSS / CSS modules
+
+## Local Development
+
+Prerequisites: Node.js (16+ recommended) and a package manager (`npm`, `pnpm`, or `yarn`).
+
+Install dependencies and run the dev server:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Useful Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `dev` - Run the development server
+- `build` - Build for production
+- `start` - Start the production server
+- `lint` - Run linters (if configured)
 
-## Learn More
+Run scripts with `npm run <script>` (or `pnpm` / `yarn`).
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure (important paths)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `app/` – Next.js app routes and pages
+- `src/components/` – Page components grouped by area (home, layout, project-detail, ui)
+- `src/data/` – JSON and data used to generate project pages (projects.json, project-details/*)
+- `src/lib/` – utility helpers
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+To add or update projects, edit `src/data/projects.json` and the files under `src/data/project-details/`.
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Deploy onto Vercel for the easiest workflow: connect the repository and use default Next.js settings. Alternatively build and serve with `npm run build` and `npm run start`.

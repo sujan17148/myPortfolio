@@ -1,0 +1,34 @@
+{
+  "slug": "auth-system",
+  "title": "AuthSystem",
+  "subtitle": "Login done properly",
+  "status": "shipped",
+  "statusLabel": "Shipped",
+  "description": "A complete authentication service: email verification, password resets, refresh-token rotation and Google/GitHub OAuth, with emails and OTPs handled on a background queue instead of blocking the request.",
+  "tags": ["Express", "PostgreSQL", "Prisma", "Redis", "JWT", "OAuth", "BullMQ"],
+  "codeUrl": "https://github.com/sujan17148/auth-system",
+  "sections": [
+    {
+      "heading": "WHY THIS EXISTS",
+      "content": "Every project I built needed auth, and every time I copy-pasted a half-baked JWT setup. I wanted one service I actually trusted, built once and reused, with real token rotation and OAuth done properly instead of bolted on."
+    },
+    {
+      "heading": "THE HARD PART",
+      "content": "Handling refresh tokens safely without hammering the database on every request. I designed it around token families with reuse detection, so a stolen or replayed refresh token invalidates the whole family instead of quietly slipping through."
+    },
+    {
+      "heading": "WHAT CHANGED IN MY HEAD",
+      "content": "Security isn't a feature you bolt on. The difference between a toy auth system and a real one is in the edge cases — what happens when a token gets reused, when an OAuth account already exists under a different provider, when an email job fails. That's now just part of how I build anything."
+    },
+    {
+      "heading": "WORTH POINTING AT",
+      "bulletPoints": [
+        "Refresh token rotation with reuse detection across token families",
+        "Google and GitHub OAuth via the server-side authorization code flow, not client-side ID tokens",
+        "Atomic OAuth account resolution using a database transaction, so a signup can't half-complete",
+        "Email verification, password reset, and OTPs handled through BullMQ background jobs",
+        "Fully Dockerized with Redis for sessions and an admin dashboard"
+      ]
+    }
+  ]
+}

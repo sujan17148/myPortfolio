@@ -1,0 +1,29 @@
+[
+  {
+    "slug": "keystroke",
+    "title": "Keystroke",
+    "subtitle": "Multiplayer typing races, live",
+    "category": "built",
+    "status": "actively-building",
+    "description": "Share a room code and race friends in real-time, no sign-up. A Redis leaderboard pushes rank changes as people type. The whole stack runs in Docker.",
+    "tags": ["React", "TypeScript", "Express", "Socket.IO", "Redis", "Docker"]
+  },
+  {
+    "slug": "prepmate",
+    "title": "PrepMate",
+    "subtitle": "AI interview prep",
+    "category": "built",
+    "status": "shipped",
+    "description": "Practice a job interview out loud. It listens, adapts its questions to your resume or the job description, then scores your answers on relevance and clarity when you're done.",
+    "tags": ["React", "TypeScript", "Express", "PostgreSQL", "Socket.IO", "Groq AI"]
+  },
+  {
+    "slug": "auth-system",
+    "title": "AuthSystem",
+    "subtitle": "Login done properly",
+    "category": "built",
+    "status": "shipped",
+    "description": "A complete authentication service: email verification, password resets, refresh-token rotation and Google/GitHub OAuth. Emails and OTPs run through a background queue instead of blocking the request.",
+    "tags": ["Express", "Prisma", "Redis", "JWT", "OAuth", "BullMQ"]
+  }
+]

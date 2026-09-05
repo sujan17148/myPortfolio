@@ -1,0 +1,33 @@
+{
+    "slug": "keystroke",
+    "title": "Keystroke",
+    "subtitle": "Multiplayer typing races, live",
+    "status": "actively-building",
+    "statusLabel": "Actively building",
+    "description": "Share a room code and race friends in real-time, no sign-up. A Redis leaderboard pushes rank changes as people type. The whole stack runs in Docker.",
+    "tags": ["React", "TypeScript", "Express", "Socket.IO", "Redis", "Docker"],
+    "codeUrl": "https://github.com/sujan17148/keystroke",
+    "sections": [
+      {
+        "heading": "WHY THIS EXISTS",
+        "content": "I wanted to actually learn Redis and sockets past the tutorial level, and a typing race is a good excuse — it needs a live leaderboard, fast state updates, and rooms that don't step on each other."
+      },
+      {
+        "heading": "THE HARD PART",
+        "content": "Every keystroke updating the leaderboard for everyone in the room would've drowned the client. I throttled progress updates instead of sending on every character, and used a Redis sorted set so rank changes stay cheap to compute even as more players join."
+      },
+      {
+        "heading": "WHAT CHANGED IN MY HEAD",
+        "content": "Not everything needs a database. Rooms are short-lived, so I kept the whole thing in Redis with no persistent storage — a deliberate choice, not a shortcut, once I actually thought about what the data needed to outlive."
+      },
+      {
+        "heading": "WORTH POINTING AT",
+        "bulletPoints": [
+          "Redis sorted set leaderboard broadcasting live rank updates over Socket.IO",
+          "8-character room codes with lookalike characters removed, resolved server-side so the client never handles raw contest IDs",
+          "No persistent database — an intentional call given how short-lived a room is",
+          "Full stack containerized with Docker Compose for dev/prod parity"
+        ]
+      }
+    ]
+  }
