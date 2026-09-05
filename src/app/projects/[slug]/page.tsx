@@ -9,6 +9,7 @@ import keystrokeData from '@/data/project-details/keystroke.json';
 import prepmateData from '@/data/project-details/prepmate.json';
 import authSystemData from '@/data/project-details/auth-system.json';
 import Link from 'next/link';
+import { personalInfo } from '@/data/personal';
 
 const projectDetailsMap: Record<string, ProjectDetail> = {
   keystroke: keystrokeData as ProjectDetail,
@@ -22,8 +23,6 @@ export function generateStaticParams() {
     slug,
   }));
 }
-
-// Generate metadata for each project page
 export async function generateMetadata({
   params,
 }: {
@@ -36,13 +35,26 @@ export async function generateMetadata({
     return { title: 'Project Not Found' };
   }
 
+  const title = `${project.title} - ${project.subtitle}`;
+
   return {
-    title: `${project.title} - ${project.subtitle}`,
+    title,
     description: project.description,
+    keywords: [project.title, ...project.tags],
+    alternates: {
+      canonical: `/projects/${slug}`,
+    },
     openGraph: {
-      title: `${project.title} - ${project.subtitle}`,
+      title,
       description: project.description,
       type: 'article',
+      url: `/projects/${slug}`,
+      siteName: personalInfo.name,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description: project.description,
     },
   };
 }

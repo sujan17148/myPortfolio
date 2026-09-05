@@ -31,14 +31,33 @@ const cedarvilleCursive = Cedarville_Cursive({
 });
 
 export const metadata: Metadata = {
-  title: `${personalInfo.name} — ${personalInfo.title}`,
+  metadataBase: new URL('https://sujankumarsah.com.np'),
+  title: {
+    default: `${personalInfo.name} - ${personalInfo.title}`,
+    template: `%s - ${personalInfo.name}`,
+  },
   description: personalInfo.description,
   keywords: ['Full-Stack Developer', 'JavaScript', 'TypeScript', 'React', 'Node.js', 'Portfolio'],
-  authors: [{ name: personalInfo.name }],
+  authors: [{ name: personalInfo.name, url: personalInfo.githubUrl }],
+  creator: personalInfo.name,
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
-    title: `${personalInfo.name} — ${personalInfo.title}`,
+    title: `${personalInfo.name} - ${personalInfo.title}`,
     description: personalInfo.description,
     type: 'website',
+    url: 'https://sujankumarsah.com.np',
+    siteName: personalInfo.name,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `${personalInfo.name} - ${personalInfo.title}`,
+    description: personalInfo.description,
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
