@@ -1,33 +1,34 @@
- {
-    "slug": "prepmate",
-    "title": "PrepMate",
-    "subtitle": "AI interview prep",
-    "status": "shipped",
-    "statusLabel": "Shipped",
-    "description": "Practice a job interview out loud. It listens, adapts its questions to your resume or the job description, then scores your answers on relevance and clarity when you're done.",
-    "tags": ["React", "TypeScript", "Express", "PostgreSQL", "Socket.IO", "Groq AI"],
-    "codeUrl": "https://github.com/sujan17148/prepmate",
-    "sections": [
-      {
-        "heading": "WHY THIS EXISTS",
-        "content": "My final-year project, built solo, end to end. I wanted mock interview practice that actually felt like a conversation — not a form you fill out after the fact."
-      },
-      {
-        "heading": "THE HARD PART",
-        "content": "Knowing when someone actually stopped talking, not just paused. I replaced the browser's speech API with my own audio pipeline and used amplitude-based voice detection to catch silence reliably across different browsers, instead of guessing off a timer."
-      },
-      {
-        "heading": "WHAT CHANGED IN MY HEAD",
-        "content": "Real-time systems can't wait on slow work. Scoring an answer takes time, so I moved it off the live conversation entirely and ran it in the background — the interview never stalls waiting on the AI to finish grading."
-      },
-      {
-        "heading": "WORTH POINTING AT",
-        "bulletPoints": [
-          "Full voice interview pipeline over WebSockets, with Groq for speech-to-text and text-to-speech",
-          "RMS-based voice activity detection for cross-browser silence detection",
-          "Adaptive question generation from a resume or job description",
-          "Post-interview scoring runs asynchronously so it never blocks the live conversation"
-        ]
-      }
-    ]
-  }
+{
+  "slug": "prepmate",
+  "title": "PrepMate",
+  "subtitle": "AI interview prep",
+  "status": "shipped",
+  "statusLabel": "Shipped",
+  "description": "Practice a job interview out loud. It listens, adapts its questions to your resume or the job description, then scores your answers on relevance and clarity when you're done.",
+  "tags": ["React", "TypeScript", "Express", "PostgreSQL", "Socket.IO", "Groq AI"],
+  "codeUrl": "https://github.com/sujan17148/prepmate",
+  "liveUrl": "https://prepmate-seven.vercel.app",
+  "sections": [
+    {
+      "heading": "WHY THIS EXISTS",
+      "content": "My final-year project, built solo, end to end. I wanted mock interview practice that actually felt like a conversation — not a form you fill out after the fact."
+    },
+    {
+      "heading": "THE HARD PART",
+      "content": "Knowing when someone actually stopped talking, not just paused. I replaced the browser's speech API with my own audio pipeline and used amplitude-based voice detection to catch silence reliably across different browsers, instead of guessing off a timer."
+    },
+    {
+      "heading": "WHAT CHANGED IN MY HEAD",
+      "content": "Real-time systems can't wait on slow work. Scoring an answer takes time, so I moved it off the live conversation entirely and ran it in the background — the interview never stalls waiting on the AI to finish grading."
+    },
+    {
+      "heading": "WORTH POINTING AT",
+      "bulletPoints": [
+        "Full voice interview pipeline over WebSockets, with Groq for speech-to-text and text-to-speech",
+        "RMS-based voice activity detection for cross-browser silence detection",
+        "Adaptive question generation from a resume or job description",
+        "Post-interview scoring runs asynchronously so it never blocks the live conversation"
+      ]
+    }
+  ]
+}

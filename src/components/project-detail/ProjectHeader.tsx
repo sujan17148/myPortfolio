@@ -16,33 +16,46 @@ export function ProjectHeader({ project }: ProjectHeaderProps) {
 
       <ul className="mt-5 flex flex-wrap gap-2">
         {project.tags.map((s) => (
-          <li key={s} className="sketch-border-sm border-2 px-1 text-sm cursor-default">
+          <li key={s} className="sketch-border-sm  border-2 px-1 text-sm cursor-default">
             {s}
           </li>
         ))}
       </ul>
 
-      {project.codeUrl && (
-        <a
-          href={project.codeUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="mt-6 inline-block rounded-full sketch-border border-2 px-2 py-1.5 font-hand text-sm"
-        >
-          View the code ↗
-        </a>
-      )}
+      <div className="cta flex items-center gap-3">
+        {project.codeUrl && (
+          <a
+            href={project.codeUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-6 inline-block sketch-border border-2 px-2 py-1.5 font-hand text-sm"
+          >
+            View the code ↗
+          </a>
+        )}
 
-      {project.liveUrl && (
-        <a
-          href={project.liveUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="mt-6 inline-block rounded-full bg-ink px-5 py-1.5 font-hand text-sm text-background"
-        >
-          Live Preview
-        </a>
-      )}
+        {project.liveUrl && (
+          <a
+            href={project.liveUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-6 inline-block  sketch-border border-2 px-2 py-1.5 font-hand text-sm"
+          >
+            Live Preview ↗
+          </a>
+        )}
+
+        {project.demoUrl && (
+          <a
+            href={project.demoUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-6 inline-block  sketch-border border-2 px-2 py-1.5 font-hand text-sm"
+          >
+            ▶ Watch the demo
+          </a>
+        )}
+      </div>
     </section>
   );
 }
