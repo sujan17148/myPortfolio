@@ -1,11 +1,11 @@
 [
   {
-    "version": "v1.0.0",
-    "role": "Frontend Developer Intern",
-    "company": "ByteGurkha",
-    "startDate": "Sep 2025",
-    "endDate": "Dec 2025",
-    "description": "Built the frontend for an attendance system with auth and role-based views, and worked on the component setup for a four-person e-commerce project."
+    "version": "v3.0.0",
+    "role": "Independent projects",
+    "company": "",
+    "startDate": "Jun 2026",
+    "endDate": "Present",
+    "description": "Building full-stack projects on my own — an OAuth auth service, a real-time multiplayer app, and background job pipelines, all running in Docker."
   },
   {
     "version": "v2.0.0",
@@ -16,11 +16,11 @@
     "description": "Built JWT-based auth with role permissions, eSewa/Khalti payment verification, and an admin tool for handling customer refunds."
   },
   {
-    "version": "v3.0.0",
-    "role": "Independent projects",
-    "company": "",
-    "startDate": "Jun 2026",
-    "endDate": "Present",
-    "description": "Building full-stack projects on my own — an OAuth auth service, a real-time multiplayer app, and background job pipelines, all running in Docker."
+    "version": "v1.0.0",
+    "role": "Frontend Developer Intern",
+    "company": "ByteGurkha",
+    "startDate": "Sep 2025",
+    "endDate": "Dec 2025",
+    "description": "Built the frontend for an attendance system with auth and role-based views, and worked on the component setup for a four-person e-commerce project."
   }
 ]

@@ -11,7 +11,7 @@ export function ExperienceSection({ experiences }: ExperienceSectionProps) {
       <div className="mb-8 flex items-end justify-between gap-4">
         <h2 className=" text-2xl">Where I&apos;ve worked</h2>
         <span className="font-hand text-xs tracking-widest text-pencil uppercase">
-          Oldest first
+          Newest first
         </span>
       </div>
 

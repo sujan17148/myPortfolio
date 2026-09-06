@@ -237,6 +237,12 @@
   }
 }
 
+@utility pencil-circle {
+  position: relative;
+  border: 1px solid color-mix(in oklab, var(--foreground) 42%, transparent);
+  border-radius: 48% 55% 46% 52% / 55% 45% 54% 48%;
+}
+
 @utility sketch-underline {
   background-image: linear-gradient(
     to right,
