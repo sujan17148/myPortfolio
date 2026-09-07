@@ -16,7 +16,7 @@ export function ProjectHeader({ project }: ProjectHeaderProps) {
 
       <ul className="mt-5 flex flex-wrap gap-2">
         {project.tags.map((s) => (
-          <li key={s} className="sketch-border-sm  border-2 px-1 text-sm cursor-default">
+          <li key={s} className="sketch-border-sm border-2 px-1 text-sm cursor-default">
             {s}
           </li>
         ))}
@@ -28,7 +28,7 @@ export function ProjectHeader({ project }: ProjectHeaderProps) {
             href={project.codeUrl}
             target="_blank"
             rel="noreferrer"
-            className="mt-6 inline-block sketch-border border-2 px-2 py-1.5 font-hand text-sm"
+            className="mt-6 inline-block sketch-border border-2 px-2 py-1.5 font-hand text-sm transition-all duration-200 ease-out hover:-translate-y-0.5 odd:hover:-rotate-1 even:hover:rotate-1 hover:border-ink active:translate-y-0 motion-reduce:transition-none motion-reduce:transform-none"
           >
             View the code ↗
           </a>
@@ -39,7 +39,7 @@ export function ProjectHeader({ project }: ProjectHeaderProps) {
             href={project.liveUrl}
             target="_blank"
             rel="noreferrer"
-            className="mt-6 inline-block  sketch-border border-2 px-2 py-1.5 font-hand text-sm"
+            className="mt-6 inline-block sketch-border border-2 px-2 py-1.5 font-hand text-sm transition-all duration-200 ease-out hover:-translate-y-0.5 odd:hover:-rotate-1 even:hover:rotate-1 hover:border-ink active:translate-y-0 motion-reduce:transition-none motion-reduce:transform-none"
           >
             Live Preview ↗
           </a>
@@ -50,7 +50,7 @@ export function ProjectHeader({ project }: ProjectHeaderProps) {
             href={project.demoUrl}
             target="_blank"
             rel="noreferrer"
-            className="mt-6 inline-block  sketch-border border-2 px-2 py-1.5 font-hand text-sm"
+            className="mt-6 inline-block sketch-border border-2 px-2 py-1.5 font-hand text-sm transition-all duration-200 ease-out hover:-translate-y-0.5 odd:hover:-rotate-1 even:hover:rotate-1 hover:border-ink active:translate-y-0 motion-reduce:transition-none motion-reduce:transform-none"
           >
             ▶ Watch the demo
           </a>

@@ -7,7 +7,10 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <article key={project.slug} className="sketch-border border-2 p-5">
+    <article
+      key={project.slug}
+      className="group sketch-border border-2 p-5 transition-all duration-200 ease-out hover:-translate-y-0.5 odd:hover:-rotate-1 even:hover:rotate-1 hover:border-ink motion-reduce:transition-none motion-reduce:transform-none"
+    >
       <div className="flex flex-wrap items-baseline justify-between gap-2">
         <h3 className="text-xl">{project.title}</h3>
         <span className="font-hand text-sm ">{project.status}</span>
@@ -25,7 +28,10 @@ export function ProjectCard({ project }: ProjectCardProps) {
         href={`/projects/${project.slug}`}
         className="mt-4 inline-block font-hand text-sm sketch-underline"
       >
-        Read the story →
+        Read the story{' '}
+        <span className="inline-block transition-transform duration-200 group-hover:translate-x-1 motion-reduce:transition-none">
+          →
+        </span>
       </Link>
     </article>
   );

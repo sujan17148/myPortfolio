@@ -12,7 +12,10 @@ export function Header({ name, email }: HeaderProps) {
         <Link href="/" className="flex items-center gap-2 font-hand font-bold">
           {name}
         </Link>
-        <a href={`mailto:${email}`} className="sketch-border border-2  px-2 py-1 leading-none ">
+        <a
+          href={`mailto:${email}`}
+          className="sketch-border border-2 px-2 py-1 leading-none transition-all duration-200 ease-out hover:-translate-y-0.5 hover:-rotate-1 hover:border-ink active:translate-y-0 motion-reduce:transition-none motion-reduce:transform-none"
+        >
           Get in touch
         </a>
       </nav>

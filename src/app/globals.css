@@ -243,6 +243,21 @@
   border-radius: 48% 55% 46% 52% / 55% 45% 54% 48%;
 }
 
+/* hand-drawn circular checkbox — an irregular closed stroke that ticks off
+   on hover, like an item being crossed off a notebook list */
+@utility check-circle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  border: 1px solid color-mix(in oklab, var(--color-pencil) 55%, transparent);
+  border-radius: 48% 55% 46% 52% / 55% 45% 54% 48%;
+  transition: border-color 200ms ease-out;
+}
+
 @utility sketch-underline {
   background-image: linear-gradient(
     to right,
