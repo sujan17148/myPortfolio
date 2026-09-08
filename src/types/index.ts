@@ -49,8 +49,3 @@ export interface ProjectDetail {
   demoUrl?: string;
   sections: ProjectContentSection[];
 }
-
-export interface TechItem {
-  name: string;
-  description: string;
-}
